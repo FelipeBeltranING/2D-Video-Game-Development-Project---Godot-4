@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://br510sf1gfmts"]
+
+[ext_resource type="Script" uid="uid://hfce854743bv" path="res://Scripts/Characters/personaje_2.gd" id="1_xjiow"]
+[ext_resource type="PackedScene" uid="uid://m0ddy6220tnr" path="res://Scenes/Others/Bullet.tscn" id="2_d32de"]
+[ext_resource type="PackedScene" uid="uid://dr4kjpd4k3e56" path="res://Scenes/Abilities/Dron.tscn" id="2_eathu"]
+[ext_resource type="PackedScene" uid="uid://dscmuw7fnxal8" path="res://Scenes/Abilities/Bomb.tscn" id="3_ljq2r"]
+[ext_resource type="PackedScene" uid="uid://d1vdlkwnycl7q" path="res://Scenes/Others/Bullet2.tscn" id="4_vb8yi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mox3y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xjiow"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Sprint",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjiow"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_xjiow")
+dron_scene = ExtResource("2_eathu")
+bullet1_scene = ExtResource("2_d32de")
+bullet2_scene = ExtResource("4_vb8yi")
+bomb_scene = ExtResource("3_ljq2r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_mox3y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xjiow")
+animation = &"Left"
+
+[node name="Arma" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Arma"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arma/Area2D"]
+scale = Vector2(0.3, 0.3)
+shape = SubResource("RectangleShape2D_xjiow")

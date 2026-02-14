@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr4kjpd4k3e56"]
+
+[ext_resource type="Script" uid="uid://slvdg2yssiju" path="res://Scripts/Abilities/dron.gd" id="1_ff1a8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3irj3"]
+radius = 8.0
+
+[node name="Dron" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ff1a8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3irj3")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
