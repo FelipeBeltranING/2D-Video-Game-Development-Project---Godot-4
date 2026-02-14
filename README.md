@@ -15,9 +15,9 @@ Rather than serving as a finished product, this repository represents the techni
 
 ## 🎨Design Ideas
 
-### Rogue
-![Development Window](Images/Sprite.png)
 ### Magic
+![Development Window](Images/Sprite.png)
+### Rogue
 ![Development Window](Images/Sprite2.png)
 
 ## 🎮Core Systems Implemented
