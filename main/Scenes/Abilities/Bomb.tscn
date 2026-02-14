@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dscmuw7fnxal8"]
+
+[ext_resource type="Script" uid="uid://b34esx2qt2bcj" path="res://Scripts/Abilities/bomb.gd" id="1_vdjv5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vdjv5"]
+radius = 50.0
+
+[node name="Bomb" type="Node2D"]
+script = ExtResource("1_vdjv5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_vdjv5")
+
+[node name="Timer" type="Timer" parent="."]

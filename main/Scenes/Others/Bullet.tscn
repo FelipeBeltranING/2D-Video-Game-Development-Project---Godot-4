@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://m0ddy6220tnr"]
+
+[ext_resource type="Script" uid="uid://cdlaytjnske05" path="res://Scripts/Others/bullet.gd" id="1_jbm0d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbm0d"]
+size = Vector2(10, 2)
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_jbm0d")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_jbm0d")

@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://blfrgfriv2tyr"]
+
+[ext_resource type="Script" uid="uid://beiqxbyge8kue" path="res://Scripts/Characters/personaje_1.gd" id="1_dmp7i"]
+[ext_resource type="Script" uid="uid://bj7t7udubpda7" path="res://Scripts/Others/sword.gd" id="2_arble"]
+[ext_resource type="Texture2D" uid="uid://bgrhbbb6nl4og" path="res://Assets/Sprites/rogue..png" id="2_fwova"]
+[ext_resource type="Script" uid="uid://d4bc8xidv6n31" path="res://Scripts/Abilities/hardAttack_hitbox.gd" id="4_3voax"]
+[ext_resource type="Script" uid="uid://bgwgqsyjq0cxs" path="res://Scripts/Abilities/hability_hitbox.gd" id="5_ffs6e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fwova"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3voax"]
+atlas = ExtResource("2_fwova")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ffs6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3voax")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmp7i"]
+size = Vector2(24, 31.999992)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3voax"]
+radius = 37.500015
+height = 82.50003
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhwfu"]
+radius = 36.44345
+
+[node name="Personaje1" type="CharacterBody2D" groups=["Player"]]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_dmp7i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_fwova")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ffs6e")
+frame_progress = 0.4690114
+
+[node name="Sword" type="Node2D" parent="."]
+script = ExtResource("2_arble")
+
+[node name="attack_hitbox" type="Area2D" parent="Sword"]
+monitoring = false
+
+[node name="attack_collision" type="CollisionShape2D" parent="Sword/attack_hitbox"]
+rotation = 3.1415925
+shape = SubResource("RectangleShape2D_dmp7i")
+debug_color = Color(0.105882354, 0.5568628, 1, 0.41960785)
+
+[node name="hardAttack_hitbox" type="Area2D" parent="Sword"]
+script = ExtResource("4_3voax")
+
+[node name="hardAttack_collision" type="CollisionShape2D" parent="Sword/hardAttack_hitbox"]
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("CapsuleShape2D_3voax")
+debug_color = Color(0.96082896, 0, 0.51655287, 0.41960785)
+
+[node name="hability_hitbox" type="Area2D" parent="Sword"]
+script = ExtResource("5_ffs6e")
+
+[node name="hability_collision" type="CollisionShape2D" parent="Sword/hability_hitbox"]
+shape = SubResource("CircleShape2D_qhwfu")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwyfgs3lyekpq"]
+
+[ext_resource type="Script" uid="uid://bgyiepn2us8op" path="res://Scripts/Characters/enemy.gd" id="1_3vkvf"]
+[ext_resource type="Script" uid="uid://dky6pi0me85jt" path="res://Scripts/Abilities/combat_system.gd" id="2_e8yix"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nu35y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ccht0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vkvf"]
+size = Vector2(72, 66)
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+position = Vector2(262, 156)
+script = ExtResource("1_3vkvf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_nu35y")
+debug_color = Color(0.89794457, 0.23848048, 0.2532429, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ccht0")
+
+[node name="combat_system" type="Node2D" parent="."]
+script = ExtResource("2_e8yix")
+
+[node name="Area2D" type="Area2D" parent="combat_system"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="combat_system/Area2D"]
+shape = SubResource("RectangleShape2D_3vkvf")
+debug_color = Color(0.58664966, 0.5528483, 0, 0.41960785)
