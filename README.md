@@ -48,10 +48,10 @@ Rather than serving as a finished product, this repository represents the techni
   - Base structure for future buff/debuff systems
 
 ## Combat Systems view
-### Melee
+### Melee 🗡️
 ![Combat systems](Images/Main_(DEBUG)-Personaje1.gif)
 
-### Range
+### Range 🏹
 ![Combat systems](Images/Main_(DEBUG)-Personaje2.gif)
 
 ## 🛠️Technologies Used
